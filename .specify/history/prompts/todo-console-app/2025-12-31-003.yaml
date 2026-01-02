@@ -1,0 +1,61 @@
+---
+id: phr-2025-12-31-004
+title: Generate Todo Console App Tasks
+stage: tasks
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: todo-console-app
+branch: 001-todo-console-app
+user: human
+command: /sp.tasks
+labels: [tasks, implementation, python, cli]
+links:
+  spec: specs/001-todo-console-app/spec.md
+  plan: specs/001-todo-console-app/plan.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - specs/001-todo-console-app/tasks.md
+tests: []
+---
+
+## Prompt
+
+$ARGUMENTS
+
+(No additional input provided - using existing design documents)
+
+## Response snapshot
+
+Generated tasks.md with 45 implementation tasks organized into 9 phases:
+
+**Phase 1: Setup** (6 tasks) - Project structure, __init__.py files
+**Phase 2: Foundational** (9 tasks) - Task dataclass, TaskManager with all CRUD methods
+**Phase 3: User Story 6** (4 tasks) - Main menu navigation
+**Phase 4: User Story 1** (4 tasks) - Add task functionality
+**Phase 5: User Story 2** (3 tasks) - View task list
+**Phase 6: User Story 3** (4 tasks) - Mark complete
+**Phase 7: User Story 4** (5 tasks) - Update task
+**Phase 8: User Story 5** (4 tasks) - Delete task
+**Phase 9: Polish** (6 tasks) - Validation, tests, final validation
+
+**Key metrics**:
+- 24 parallelizable tasks (marked with [P])
+- 24 story-specific tasks (marked with [US1]-[US6])
+- All tasks follow strict checklist format with IDs, file paths
+
+## Outcome
+
+- ✅ Impact: Implementation task list ready for execution
+- 📁 Files: specs/001-todo-console-app/tasks.md (252 lines)
+- 🔁 Next prompts: /sp.implement to execute tasks, or start Red-Green-Refactor cycle
+- 🧠 Reflection: Tasks organized to enable independent story testing; MVP can be achieved with US1 after Phase 2
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

@@ -1,0 +1,57 @@
+---
+id: phr-2025-12-31-003
+title: Create Todo Console App Plan
+stage: plan
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: todo-console-app
+branch: 001-todo-console-app
+user: human
+command: /sp.plan
+labels: [plan, implementation, cli, python]
+links:
+  spec: specs/001-todo-console-app/spec.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - specs/001-todo-console-app/plan.md
+  - specs/001-todo-console-app/research.md
+  - specs/001-todo-console-app/data-model.md
+  - specs/001-todo-console-app/quickstart.md
+  - specs/001-todo-console-app/contracts/cli-commands.md
+tests: []
+---
+
+## Prompt
+
+"Hi Claude. I have initialized a new project. Please read CLAUDE.md, constitution.md, and specs/001-todo-console-app. Based on these, generate a step-by-step development plan to build this Python app using uv."
+
+## Response snapshot
+
+Created comprehensive implementation plan with all design documents:
+
+**plan.md**: Technical context, constitution check (all gates pass), project structure (src/models/, src/services/, src/cli/)
+
+**research.md**: Python CLI best practices - input validation approach, task storage structure (list of dataclass), menu system design (while-loop with input())
+
+**data-model.md**: Task entity with id, title, description, status attributes; TaskManager class with add/update/delete/mark_complete methods
+
+**quickstart.md**: Installation and usage instructions for uv run python -m src.main
+
+**contracts/cli-commands.md**: Detailed CLI command contracts for all 6 menu operations with input prompts, success outputs, and error messages
+
+## Outcome
+
+- ✅ Impact: Full implementation plan ready for task generation
+- 📁 Files: plan.md, research.md, data-model.md, quickstart.md, contracts/cli-commands.md
+- 🔁 Next prompts: /sp.tasks to generate implementation tasks
+- 🧠 Reflection: All constitution principles satisfied, no violations to track
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

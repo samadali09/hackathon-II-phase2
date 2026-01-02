@@ -1,0 +1,54 @@
+---
+id: phr-2025-12-31-001
+title: Create TaskFlow Constitution
+stage: constitution
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: taskflow
+branch: master
+user: human
+command: /sp.constitution
+labels: [constitution, governance, project-setup]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - .specify/memory/constitution.md
+tests: []
+---
+
+## Prompt
+
+Create the project constitution based on user input:
+
+```
+#project Constitution  1. **Architecture:** the application you must use in-memory dictionary or list to store tasks.No exyernal database files (SQL/SQLLite) for this phase  2.**User Interface:** Pure command line interface (CLI).Use clear print statements and input prompts.   3.**Error handling:** The app must not crash on invalid input (e.g., entering text where a number is expected).  4.**Modularity:** keep the `Task` model, the `Taskmanager` Logic, and the `CLI` interaction in seperate files/modules if possible
+```
+
+## Response snapshot
+
+Created `.specify/memory/constitution.md` with 4 core principles:
+
+1. **I. In-Memory Architecture** - Dict/list storage, no external databases
+2. **II. CLI-First Interface** - Pure command-line with print/input
+3. **III. Robust Error Handling** - Graceful handling of invalid input
+4. **IV. Modular Architecture** - Separate models/services/cli modules
+
+Added Additional Constraints (Python 3.13+, uv, pytest) and Development Workflow sections. Version 1.0.0.
+
+## Outcome
+
+- ✅ Impact: New constitution established for TaskFlow project
+- 📁 Files: .specify/memory/constitution.md (100 lines)
+- 🔁 Next prompts: /sp.specify to create feature specifications
+- 🧠 Reflection: Constitution aligns with existing CLAUDE.md project preferences
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A (initial creation)
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

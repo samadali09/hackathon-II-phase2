@@ -1,0 +1,65 @@
+---
+id: phr-2025-12-31-006
+title: Implement CLI Main Loop
+stage: green
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: todo-console-app
+branch: 001-todo-console-app
+user: human
+command: /sp.implement
+labels: [cli, main-loop, user-input]
+links:
+  tasks: specs/001-todo-console-app/tasks.md
+  contracts: specs/001-todo-console-app/contracts/cli-commands.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - src/main.py
+  - src/cli/__init__.py
+  - src/cli/menu.py
+  - src/cli/validation.py
+tests: []
+---
+
+## Prompt
+
+"Now, implement the Main CLI loop in src/main.py that imports the manager and handles user inputs as defined in the spec."
+
+## Response snapshot
+
+**Implemented full CLI application with all 6 menu options:**
+
+- Created `src/cli/` package with:
+  - `menu.py`: Display functions for all prompts (add, view, update, delete, mark complete, main menu)
+  - `validation.py`: Input validation for task IDs and menu choices with clear error messages
+
+- Created `src/main.py` with:
+  - Main menu loop (while True, displays menu, processes input)
+  - Menu options 1-6: Add Task, View Tasks, Update Task, Delete Task, Mark Complete, Exit
+  - Error handling for invalid inputs (non-numeric, out of range, missing tasks)
+  - All operations connected to TaskManager methods
+
+**Verification**:
+```bash
+echo -e "1\nBuy groceries\nMilk and bread\n2\n6" | uv run python -m src.main
+# Output: Task created, view shows "[ ] 1 - Buy groceries"
+```
+
+**Updated tasks.md**: Marked T016-T040 as completed (25 additional tasks)
+
+## Outcome
+
+- ✅ Impact: Full CLI application complete - ready for testing
+- 📁 Files: 4 new files (src/main.py, src/cli/__init__.py, menu.py, validation.py)
+- 🔁 Next prompts: Phase 9 (pytest config, unit tests, final validation)
+- 🧠 Reflection: All user stories now implemented, all operations working
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

@@ -1,0 +1,72 @@
+---
+id: phr-2025-12-31-005
+title: Implement Task Model and Manager
+stage: green
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: todo-console-app
+branch: 001-todo-console-app
+user: human
+command: /sp.implement
+labels: [implementation, python, models, services]
+links:
+  plan: specs/001-todo-console-app/plan.md
+  tasks: specs/001-todo-console-app/tasks.md
+  data-model: specs/001-todo-console-app/data-model.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - .gitignore
+  - src/__init__.py
+  - src/models/__init__.py
+  - src/models/task.py
+  - src/services/__init__.py
+  - src/services/task_manager.py
+  - tests/__init__.py
+  - tests/unit/__init__.py
+tests: []
+---
+
+## Prompt
+
+"Great plan. Please execute Step 1 and Step 2: Set up the folder structure (/src) and implement the Task Model and Task Manager logic. Remember to use Python 3.13 type hinting."
+
+## Response snapshot
+
+**Phase 1: Setup (6 tasks completed)**
+- Created .gitignore with Python patterns
+- Created directory structure: src/, src/models/, src/services/, tests/unit/
+- Created all __init__.py package markers
+
+**Phase 2: Foundational (9 tasks completed)**
+- Implemented Task dataclass in src/models/task.py with:
+  - id, title, description, status attributes
+  - Validation: title non-empty, status enum ("Pending"/"Completed")
+  - to_display() method for CLI output
+- Implemented TaskManager class in src/services/task_manager.py with:
+  - add_task() - auto-increments ID, defaults to "Pending"
+  - list_tasks() - returns all tasks
+  - get_task() - finds by ID
+  - update_task() - preserves values on empty input
+  - delete_task() - removes by ID
+  - mark_complete() - sets status to "Completed"
+
+**Verification**: Tested with uv run python - confirmed task creation, listing, and completion marking work correctly.
+
+**Updated**: tasks.md marked T001-T015 as completed
+
+## Outcome
+
+- ✅ Impact: Foundation layer complete - user stories can now begin
+- 📁 Files: 8 new files created, 1 updated (tasks.md)
+- 🔁 Next prompts: Phase 3 (User Story 6 - Main Menu), then US1-US5
+- 🧠 Reflection: Type hints used throughout, PEP 8 compliant, validation logic included
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

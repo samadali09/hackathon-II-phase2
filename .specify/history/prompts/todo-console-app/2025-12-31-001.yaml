@@ -1,0 +1,65 @@
+---
+id: phr-2025-12-31-002
+title: Create Todo Console App Spec
+stage: spec
+date: 2025-12-31
+surface: cli
+model: claude-sonnet-4-5-20250929
+feature: todo-console-app
+branch: 001-todo-console-app
+user: human
+command: /sp.specify
+labels: [specification, todo-app, cli]
+links:
+  spec: specs/001-todo-console-app/spec.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - specs/001-todo-console-app/spec.md
+  - specs/001-todo-console-app/checklists/requirements.md
+tests: []
+---
+
+## Prompt
+
+Create specification for: In-Memory Todo Console App
+
+Feature description: A command-line tool to manage todo tasks. Data is ephemeral (reset when app closes).
+
+Data Model:
+- Task Entity: id (Integer, auto-incrementing), title (String, required), description (String, optional), status (String enum: "Pending", "Completed" - default "Pending")
+
+Features:
+- Add Task: Prompt for Title and Description, auto-generate ID, confirm creation
+- List Tasks: Display in table/list format, show [X]/[ ] for status, ID, Title, Status. Show "No tasks found" if empty
+- Update Task: Ask for Task ID, allow updating Title or Description, keep original if empty
+- Delete Task: Ask for Task ID, remove from memory, show error if ID not found
+- Mark Complete: Ask for Task ID, toggle to "Completed"
+- User Interaction: App starts -> Show Main Menu (Add, View, Update,...
+
+## Response snapshot
+
+Created feature branch `001-todo-console-app` and specification at `specs/001-todo-console-app/spec.md`:
+
+- 6 User Stories (Add Tasks, View List, Mark Complete, Update Details, Delete Tasks, Navigate Menu)
+- 14 Functional Requirements covering all CRUD operations
+- 6 Measurable Success Criteria
+- 1 Key Entity (Task with id, title, description, status)
+- 4 Edge Cases identified for invalid input handling
+
+Quality checklist passed all items - no [NEEDS CLARIFICATION] markers needed as all requirements were clear from user description.
+
+## Outcome
+
+- ✅ Impact: Todo console app specification complete and ready for planning
+- 📁 Files: specs/001-todo-console-app/spec.md, checklists/requirements.md
+- 🔁 Next prompts: /sp.plan to create implementation plan
+- 🧠 Reflection: Feature scope is well-defined with clear user stories and acceptance criteria
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: N/A
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A
