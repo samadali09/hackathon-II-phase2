@@ -1,20 +1,32 @@
-# Claude Code Project Preferences
+# Todo App - Hackathon II
 
-## Role
-You are an expert Python developer using the Agentic Dev Stack. You adhere strictly to "No Manual Coding" rules—you write the code, I review it.
+## Project Overview
+This is a monorepo using GitHub Spec-Kit for spec-driven development.
 
-## Environment
-- **OS:** Linux (WSL2/Ubuntu)
-- **Python:** 3.13+
-- **Package Manager:** uv
-- **Frameworks:** Standard Library (In-memory storage)
+## Spec-Kit Structure
+Specifications are organized in /specs:
+- /specs/overview.md - Project overview
+- /specs/features/ - Feature specs (what to build)
+- /specs/api/ - API endpoint and MCP tool specs
+- /specs/database/ - Schema and model specs
+- /specs/ui/ - Component and page specs
 
-## Coding Standards
-- Use Python Type Hints for all functions.
-- Follow PEP 8 style guidelines.
-- Create a modular structure (separate logic from UI).
-- Add docstrings to all modules and functions.
+## How to Use Specs
+1. Always read relevant spec before implementing
+2. Reference specs with: @specs/features/task-crud.md
+3. Update specs if requirements change
+
+## Project Structure
+- /frontend - Next.js 16+ (App Router)
+- /backend - Python FastAPI server
+
+## Development Workflow
+1. Read spec: @specs/features/[feature].md
+2. Implement backend: @backend/CLAUDE.md
+3. Implement frontend: @frontend/CLAUDE.md
+4. Test and iterate
 
 ## Commands
-- Run App: `uv run python -m src.main`
-- Test: `uv run pytest`
+- Frontend: cd frontend && npm run dev
+- Backend: cd backend && uvicorn main:app --reload
+- Both: docker-compose up
